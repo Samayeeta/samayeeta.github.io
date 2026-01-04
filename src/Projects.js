@@ -1,52 +1,70 @@
+import React from 'react';
+
 const PROJECTS = [
   {
-    name: 'TechBlogs',
-    description:
-      'Developed a semantic blogging platform with a structured CMS, real-time Firebase backend, and SEO optimization. Enabled social sharing and topic-based discovery with intelligent search.',
-    stack: ['Flask', 'Firebase', 'React', 'Vite'],
+    name: 'CardioGuardAI',
+    description: 'An AI-powered system for cardiovascular risk analysis. It processes echocardiogram images using CNNs and integrates patient data to calculate risk, finally generating a comprehensive PDF report.',
+    tech: 'CNN, Python, React, NLP',
+    link: 'https://github.com/Samayeeta/ggh'
   },
   {
-    name: 'IntelliMenu',
-    description:
-      'Engineered a smart café management system that automated orders, synced live queue dashboards, and improved order accuracy by 40%. Managers accessed sales insights via real-time analytics.',
-    stack: ['Flask', 'React', 'Vite'],
+    name: 'IndiCure AI',
+    description: 'A multi-agent LLM system built to accelerate drug repurposing research. It orchestrates parallel evidence streams to reduce literature review time by ~80%.',
+    tech: 'FastAPI, Python, LLMs, Pydantic',
+    link: 'https://github.com/Samayeeta/indicure_ey'
   },
   {
-    name: 'Edufy (CalHacks Winner)',
-    description:
-      'Built an accessible learning platform with AI-driven personalization and WCAG 2.0 compliance. Won "Best Education Project" at CalHacks for improving engagement by 40%.',
-    stack: ['Flask', 'React', 'Firebase'],
+    name: 'Sahayika',
+    description: 'An offline-capable, voice-driven web application for rural empowerment. Achieved 90%+ Aadhaar field-mapping accuracy using multilingual NLP.',
+    tech: 'React, NLP, OCR, Python',
+    link: 'https://github.com/Janvi3004/Sahayika-'
   },
   {
-    name: 'NeuraGlance AI',
-    description:
-      'Created a research companion tool combining Gemini API with Puppeteer for live web scraping, real-time sentiment tagging, and summarization of trending topics.',
-    stack: ['Next.js', 'Puppeteer', 'Node.js'],
-  },
-  {
-    name: 'Accident Analysis App',
-    description:
-      'Built a GIS-enabled dashboard that visualizes traffic accident patterns using spatial clustering and GeoJSON, aiding civic authorities in planning safer roads.',
-    stack: ['Flask', 'Python', 'GeoJSON'],
-  },
+    name: 'Accident Risk Map',
+    description: 'Predictive model analyzing 4,000+ incidents to flag high-risk zones. Reduced spatial query time by 60% through geospatial indexing.',
+    tech: 'Python, Folium, GeoJSON',
+    link: '#'
+  }
 ];
 
 export default function Projects() {
   return (
-    <section className="projects" id="projects">
-      <h2 data-aos="fade-up">My Projects</h2>
-      <div className="project-list">
-        {PROJECTS.map((p,i) => (
-          <div className="project-card" key={i} data-aos="fade-up">
-            <h3>{p.name}</h3>
-            <p>{p.description}</p>
-            <div className="tech-stack">
-              {p.stack.map((t,j) => (
-                <span className="pill" key={j}>{t}</span>
-              ))}
+    <section id="projects">
+      <div className="container">
+        <h2 className="section-headline" data-aos="fade-up">Projects</h2>
+
+        <div className="project-grid-refined">
+          {PROJECTS.map((project, index) => (
+            <div
+              key={index}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+              className="project-card-refined"
+            >
+              <div className="accent-line"></div>
+
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+
+              <div className="tech-tags">
+                {project.tech.split(', ').map((t, i) => (
+                  <span key={i} className="tech-pill">{t}</span>
+                ))}
+              </div>
+
+              <div style={{ marginTop: 'auto' }}>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn-cta"
+                >
+                  GITHUB
+                </a>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
