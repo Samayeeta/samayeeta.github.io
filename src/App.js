@@ -1,30 +1,59 @@
 import './App.css';
-import Header     from './Header';
-import Hero       from './Hero';
-import About      from './About';
-import Skills     from './Skills';
-import Projects   from './Projects';
+import Header from './Header';
+import Hero from './Hero';
+import About from './About';
+import Skills from './Skills';
+import Projects from './Projects';
 import Experience from './Experience';
-import Contact    from './Contact';
-import Footer     from './Footer';
+import Activities from './Activities';
+import Achievements from './Achievements';
+import Contact from './Contact';
+import Footer from './Footer';
+import BackgroundCanvas from './BackgroundCanvas';
 
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 function App() {
-  useEffect(() => { AOS.init({ duration: 800, once: true }); }, []);
+  const [isDarkMode, setIsDarkMode] = useState(true);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out'
+    });
+  }, []);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.remove('light-mode');
+    } else {
+      document.body.classList.add('light-mode');
+    }
+  }, [isDarkMode]);
+
   return (
-    <>
-      <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <Contact />
-      <Footer />
-    </>
+    <div className="app-container">
+      {isDarkMode && <BackgroundCanvas />}
+      <Header toggleTheme={toggleTheme} isDarkMode={isDarkMode} />
+      <div className="main-wrapper">
+        <Hero />
+        <About />
+        <Experience />
+        <Activities />
+        <Projects />
+        <Skills />
+        <Achievements />
+        <Contact />
+        <Footer />
+      </div>
+    </div>
   );
 }
 
