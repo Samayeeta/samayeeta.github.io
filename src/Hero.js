@@ -22,7 +22,7 @@ export default function Hero() {
             <Typewriter
               words={[
                 'Software Engineer Intern',
-                'Impact-Driven Developer',
+                'Full-Stack Developer',
                 'Python + React Developer',
                 'Hackathon Organizer',
                 'Backend Developer'
