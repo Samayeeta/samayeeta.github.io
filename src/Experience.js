@@ -1,89 +1,105 @@
 import React from 'react';
-import AOS from 'aos';
+import { FaMapMarkerAlt } from 'react-icons/fa';
 
 const EXPERIENCE = [
   {
-    title: 'Software Engineer Intern',
-    company: 'Hirebuddy',
-    date: 'Jan 2025 – Present',
+    title: 'Software Development Intern',
+    company: 'Thakral Information Systems',
+    location: 'Remote, India',
+    date: 'Oct 2025 - Present',
     details: [
-      'Spearheading development of an AI-powered resume optimization tool aligned with ATS standards.',
-      'Integrated advanced NLP via spaCy to enhance resume parsing and keyword matching.',
-      'Built responsive frontend with React.js and Flask backend with real-time MongoDB integration.',
-      'Implemented real-time preview and optimization insights to boost user engagement.'
-    ],
+      'Full Stack Banking Chatbot: Developing a banking chatbot with React/Vite (UI) and Node.js/Express (services), using MongoDB + Mongoose for structured persistence.',
+      'Controlled GenAI Execution: Implementing a controlled Gemini intent-to-action pipeline where natural-language requests resolve to allowlisted backend operations.',
+      'REST API Design: Designing REST APIs for users, accounts, and transactions; validating end-to-end flows in Postman.',
+      'Production-Aligned Delivery: Building secret-safe patterns and Docker-compatible workflows to support deployment readiness.'
+    ]
   },
   {
-    title: 'Hackathon Organizer & Core Team Member',
-    company: 'Hack4Bengal',
-    date: 'Feb 2025 – Present',
+    title: 'Software Engineering Intern',
+    company: 'HireBuddy',
+    location: 'Remote, India',
+    date: 'Dec 2024 - Mar 2025',
     details: [
-      'Directed logistics for a 5K+ participant hackathon including mentors, workshops, and judging tracks.',
-      'Led sponsor outreach, partnership coordination, and branding execution across digital platforms.'
-    ],
+      'AI Resume Analysis: Built an AI-powered resume analysis workflow using Python, Gemini API, and NLP; improved relevance across 1,000+ user profiles.',
+      'ATS Optimization: Developed automated parsing and document generation pipelines using Python, Jinja2, and PDFKit.'
+    ]
   },
   {
-    title: 'On-site Coordinator',
-    company: 'CodeDay Kolkata',
-    date: 'Jun 2023 – Present',
+    title: 'Prompt Engineering Intern',
+    company: 'Bundled AI',
+    location: 'Remote, USA',
+    date: 'Feb 2025 - Jun 2025',
     details: [
-      'Managed technical operations for 12- and 24-hour hackathons with 250+ participants.',
-      'Created troubleshooting systems and smooth team registration experiences for seamless event flow.',
-      'Facilitated live technical support, team building, and participant onboarding resources.'
-    ],
+      'Evaluation & Experimentation: Designed prompt experiments for image generative models; iterated on inference parameters to improve repeatability.',
+      'Workflow Optimization: Systematic prompt pattern testing to reduce failure modes and improve output consistency.'
+    ]
   },
   {
-  title: 'Co-Founder & Vice President',
-  company: 'Hoomans of Calcutta',
-  date: 'Jan 2022 – Present',
-  details: [
-    'Co-founded a youth-led nonprofit driving educational and menstrual health initiatives in Kolkata.',
-    'Led campaigns that raised thousands of rupees in donations and distributed 8000+ books city-wide.',
-    'Coordinated the donation of 15,000+ sanitary products in collaboration with The Period Society.',
-    'Built partnerships with student orgs, driving outreach and logistics across multiple districts.'
-  ],
-}
+    title: 'Research Intern',
+    company: 'Classe365',
+    location: 'Remote, Australia',
+    date: 'Jul 2023 - Oct 2023',
+    details: [
+      'Market & Competitive Research: Assessed positioning and feature gaps across global EdTech student management platforms.',
+      'Strategic Documentation: Authored research-backed white papers to support product strategy and roadmap discussions with stakeholders.'
+    ]
+  },
+  {
+    title: 'Website Analyst Intern',
+    company: 'Fruitbowl Digital',
+    location: 'Remote, India',
+    date: 'Sep 2022 - Apr 2023',
+    details: [
+      'Digital Analytics & SEO: Analyzed user behavior using Google Ads and web analytics; improved SEO content strategy for high-profile clients like BMW and Tata.'
+    ]
+  }
 ];
 
 export default function Experience() {
-  React.useEffect(() => {
-    AOS.init({ duration: 800, once: true });
-  }, []);
-
   return (
-    <section className="experience" id="experience">
-      <h2 data-aos="fade-up">Experience</h2>
-      <div className="timeline-rows">
-        {EXPERIENCE.map((e, i) => (
-          <div className="timeline-row" key={i} data-aos="fade-up">
-            {/* left placeholder or card */}
-            {i % 2 === 0 ? (
-              <div className="card">{/* left card */} 
-                <h3>{e.title}</h3>
-                <p className="company">{e.company}</p>
-                <p className="exp-date">{e.date}</p>
-                <ul>{e.details.map((d,j)=><li key={j}>{d}</li>)}</ul>
-              </div>
-            ) : (
-              <div className="placeholder" />
-            )}
+    <section id="experience">
+      <div className="container">
+        <h2 className="section-headline" data-aos="fade-up">Professional Experience</h2>
 
-            {/* actual dot on the centre line */}
-            <div className="dot" />
+        <div className="experience-timeline">
+          {EXPERIENCE.map((exp, index) => (
+            <div key={index} className="experience-item" data-aos="fade-up">
+              <div className="experience-card">
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem', marginBottom: '1rem' }}>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.8rem' }}>
+                      <h3 style={{ fontSize: '1.8rem', fontWeight: 700, color: 'var(--text-main)', margin: 0 }}>{exp.title}</h3>
+                      <div className="exp-location" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', whiteSpace: 'nowrap' }}>
+                        <FaMapMarkerAlt style={{ color: 'var(--accent-color)' }} />
+                        {exp.location}
+                      </div>
+                    </div>
+                    <p style={{ fontSize: '1.3rem', fontWeight: 600, color: 'var(--accent-color)' }}>
+                      {exp.company}
+                    </p>
+                  </div>
+                  <span style={{
+                    color: 'var(--bg-color)',
+                    background: 'var(--accent-color)',
+                    padding: '8px 18px',
+                    borderRadius: '25px',
+                    fontSize: '0.9rem',
+                    fontWeight: 700,
+                    whiteSpace: 'nowrap'
+                  }}>
+                    {exp.date}
+                  </span>
+                </div>
 
-            {/* right card or placeholder */}
-            {i % 2 === 1 ? (
-              <div className="card">{/* right card */} 
-                <h3>{e.title}</h3>
-                <p className="company">{e.company}</p>
-                <p className="exp-date">{e.date}</p>
-                <ul>{e.details.map((d,j)=><li key={j}>{d}</li>)}</ul>
+                <ul style={{ color: 'var(--text-muted)', paddingLeft: '1.2rem', listStyle: 'square', marginTop: '1.5rem' }}>
+                  {exp.details.map((d, i) => (
+                    <li key={i} style={{ marginBottom: '0.8rem', lineHeight: 1.6 }}>{d}</li>
+                  ))}
+                </ul>
               </div>
-            ) : (
-              <div className="placeholder" />
-            )}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
