@@ -5,10 +5,10 @@ export default function Hero() {
   return (
     <section id="hero" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
       <div className="container" data-aos="fade-up">
-        <h1 style={{ fontSize: '4.5rem', fontWeight: 300, marginBottom: '1rem', letterSpacing: '0.05em' }}>
+        <h1 className="hero-title" style={{ fontSize: '4.5rem', fontWeight: 300, marginBottom: '1rem', letterSpacing: '0.05em' }}>
           Hello, I'm <span style={{ color: 'var(--accent-color)', fontWeight: 600 }}>Samayeeta</span>.
         </h1>
-        <h2 style={{
+        <h2 className="hero-subtitle" style={{
           fontSize: '2.5rem',
           fontWeight: 300,
           color: 'var(--text-main)',
