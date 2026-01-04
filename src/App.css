@@ -68,6 +68,19 @@ h3 {
   line-height: 1.1;
 }
 
+@media (max-width: 768px) {
+  .section-headline {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-headline {
+    font-size: 2rem;
+  }
+}
+
 .section-headline::after {
   content: '';
   position: absolute;
@@ -85,8 +98,20 @@ h3 {
   padding: 0 2rem;
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
 section {
   padding: var(--section-spacing) 0;
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 6rem 0;
+  }
 }
 
 /* Layout Blocks */
@@ -127,6 +152,17 @@ section {
   display: flex;
   gap: 2rem;
   align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.75rem;
+  }
 }
 
 .nav-link {
@@ -157,6 +193,15 @@ section {
   cursor: pointer;
   background: transparent;
   text-decoration: none;
+  min-height: 44px;
+  min-width: 44px;
+}
+
+@media (max-width: 768px) {
+  .btn-cta {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.85rem;
+  }
 }
 
 .btn-cta:hover {
@@ -520,4 +565,97 @@ section {
   font-size: 0.75rem;
   padding: 0.7rem 1.5rem;
   border-radius: 30px;
+}
+
+/* Mobile-Specific Optimizations */
+
+/* Hero Section Mobile */
+.hero-title {
+  font-size: 4.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem !important;
+    letter-spacing: 0.02em !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem !important;
+  }
+}
+
+.hero-subtitle {
+  font-size: 2.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-subtitle {
+    font-size: 1.5rem !important;
+    min-height: 2.5rem !important;
+    margin-bottom: 2.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-subtitle {
+    font-size: 1.2rem !important;
+    min-height: 2rem !important;
+  }
+}
+
+/* Experience Timeline Mobile */
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 2rem;
+  }
+
+  .experience-card {
+    padding: 1.5rem;
+  }
+
+  .experience-item {
+    margin-bottom: 3rem;
+  }
+}
+
+/* Form Inputs Mobile */
+@media (max-width: 768px) {
+
+  .form-input,
+  .form-textarea {
+    font-size: 16px;
+    /* Prevents zoom on iOS */
+  }
+
+  .btn-submit {
+    font-size: 0.9rem;
+  }
+}
+
+/* Activity and Project Cards Mobile */
+@media (max-width: 768px) {
+
+  .activity-box,
+  .project-card-refined {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+
+  .activity-box,
+  .project-card-refined {
+    padding: 1.5rem;
+  }
+}
+
+/* Navigation Mobile Touch Targets */
+@media (max-width: 768px) {
+  .theme-toggle {
+    width: 44px;
+    height: 44px;
+  }
 }
